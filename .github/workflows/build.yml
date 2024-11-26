@@ -43,6 +43,12 @@ jobs:
         ls -al
         pwd
 
+    - name: Build with Mac
+      run: |
+        cd UsePrebuiltSwiftSyntaxMac
+        xcodebuild clean build \
+          -scheme UsePrebuiltSwiftSyntaxMac
+
     - name: Build with SwiftPM
       run: |
         cd UsePrebuiltSwiftSyntaxSwiftPM
