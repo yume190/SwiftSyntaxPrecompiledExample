@@ -13,6 +13,7 @@ let package = Package(
     ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
+        .executable(name: "cli", targets: ["Cli"]),
         .library(
             name: "UsePrebuiltSwiftSyntaxSwiftPM",
             targets: ["UsePrebuiltSwiftSyntaxSwiftPM"]),
@@ -21,15 +22,20 @@ let package = Package(
         // .package(url: "https://github.com/yume190/Swallow", branch: "test-prebuilt-swift-syntax"),
         // .package(url: "https://github.com/vmanot/Swallow", branch: "master"),
         .package(path: "../Swallow"),
-        
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
+        .executableTarget(
+            name: "Cli",
+            dependencies: [
+                "UsePrebuiltSwiftSyntaxSwiftPM",
+            ]
+        ),
         .target(
             name: "UsePrebuiltSwiftSyntaxSwiftPM",
             dependencies: [
-                .product(name: "Swallow", package: "Swallow")
+                .product(name: "Swallow", package: "Swallow"),
             ]
 //            ,
 //            linkerSettings: [

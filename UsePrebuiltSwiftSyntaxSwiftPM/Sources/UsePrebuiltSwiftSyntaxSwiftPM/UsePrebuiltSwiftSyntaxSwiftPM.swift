@@ -12,6 +12,6 @@ public final class DataStore: ObservableObject {
     public var id = UUID()
 }
 
-func test() {
+public func testAction() {
     print(DataStore.shared)
 }
