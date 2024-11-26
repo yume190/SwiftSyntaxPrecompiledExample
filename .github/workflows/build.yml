@@ -24,15 +24,25 @@ jobs:
     #   run: |
     #     git config --global url."https://${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/".insteadOf "https://github.com/"
 
-    - name: Set up .netrc
-      run: |
-        echo "machine api.github.com" > ~/.netrc
-        echo "login yume190" >> ~/.netrc
-        echo "password ${{ secrets.PERSONAL_ACCESS_TOKEN }}" >> ~/.netrc
-        echo "machine github.com" > ~/.netrc
-        echo "login yume190" >> ~/.netrc
-        echo "password ${{ secrets.PERSONAL_ACCESS_TOKEN }}" >> ~/.netrc
-        chmod 600 ~/.netrc
+    # - name: Set up .netrc
+    #   run: |
+    #     echo "machine api.github.com" > ~/.netrc
+    #     echo "login yume190" >> ~/.netrc
+    #     echo "password ${{ secrets.PERSONAL_ACCESS_TOKEN }}" >> ~/.netrc
+    #     echo "machine github.com" > ~/.netrc
+    #     echo "login yume190" >> ~/.netrc
+    #     echo "password ${{ secrets.PERSONAL_ACCESS_TOKEN }}" >> ~/.netrc
+    #     chmod 600 ~/.netrc
+    - uses: extractions/netrc@v1
+      with:
+        machine: github.com
+        username: yume190
+        password: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+    - uses: extractions/netrc@v1
+      with:
+        machine: api.github.com
+        username: yume190
+        password: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 
     - name: Test .netrc
       run: |
