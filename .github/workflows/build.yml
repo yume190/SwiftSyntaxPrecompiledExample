@@ -34,6 +34,15 @@ jobs:
         echo "password ${{ secrets.PERSONAL_ACCESS_TOKEN }}" >> ~/.netrc
         chmod 600 ~/.netrc
 
+    - name: Test .netrc
+      run: |
+        curl --output source.zip \
+          --location \
+          --netrc \
+          https://github.com/PreternaturalAI/swift-syntax/releases/download/600.0.0/SwiftBasicFormat.xcframework.zip
+        ls -al
+        pwd
+
     - name: Build with SwiftPM
       run: |
         cd UsePrebuiltSwiftSyntaxSwiftPM
