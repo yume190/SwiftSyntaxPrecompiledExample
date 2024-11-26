@@ -1,0 +1,23 @@
+{
+  "originHash" : "c09f7b9e92674dc170dcff7d66b140b2b087288909d5e85d2c9d098337b9d8bb",
+  "pins" : [
+    {
+      "identity" : "swift-collections",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-collections",
+      "state" : {
+        "revision" : "671108c96644956dddcd89dd59c203dcdb36cec7",
+        "version" : "1.1.4"
+      }
+    },
+    {
+      "identity" : "swift-syntax",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/PreternaturalAI/swift-syntax.git",
+      "state" : {
+        "revision" : "93837b5d30b1a0eb03688809a85b41091b24aef8"
+      }
+    }
+  ],
+  "version" : 3
+}
