@@ -20,6 +20,10 @@ jobs:
       with:
         xcode-version: ${{ env.XCODE_VERSON }}
 
+    - name: Setup PAT for Private Repos
+      run: |
+        git config --global url."https://${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/".insteadOf "https://github.com/"
+
     - name: Build with SwiftPM
       run: |
         cd UsePrebuiltSwiftSyntaxSwiftPM
