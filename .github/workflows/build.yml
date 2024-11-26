@@ -43,6 +43,11 @@ jobs:
         ls -al
         pwd
 
+    - name: Build with SwiftPM
+      run: |
+        cd UsePrebuiltSwiftSyntaxSwiftPM
+        swift build --netrc-file ~/.netrc
+
     - name: Build with Mac
       run: |
         cd UsePrebuiltSwiftSyntaxMac
@@ -54,9 +59,3 @@ jobs:
         cd UsePrebuiltSwiftSyntaxIos
         xcodebuild clean build \
           -scheme UsePrebuiltSwiftSyntaxIos
-
-    - name: Build with SwiftPM
-      run: |
-        cd UsePrebuiltSwiftSyntaxSwiftPM
-        swift build --netrc-file ~/.netrc
-        
