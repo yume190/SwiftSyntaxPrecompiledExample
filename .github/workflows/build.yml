@@ -27,7 +27,7 @@ jobs:
     - name: Build with SwiftPM
       run: |
         cd UsePrebuiltSwiftSyntaxSwiftPM
-        echo "machine api.github.com\n  login yume190\n  password ${{ secrets.PERSONAL_ACCESS_TOKEN }}" > ~/.netrc
-        echo "machine github.com\n  login yume190\n  password ${{ secrets.PERSONAL_ACCESS_TOKEN }}" >> ~/.netrc
-        swift build
+        echo "machine api.github.com\n  login yume190\n  password ${{ secrets.PERSONAL_ACCESS_TOKEN }}\n" > .netrc
+        echo "machine github.com\n  login yume190\n  password ${{ secrets.PERSONAL_ACCESS_TOKEN }}\n" >> .netrc
+        swift build --netrc-file .netrc
         
