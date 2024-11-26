@@ -24,11 +24,18 @@ jobs:
       run: |
         git config --global url."https://${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/".insteadOf "https://github.com/"
 
+    - name: Set up .netrc
+      run: |
+        echo "machine api.github.com" > ~/.netrc
+        echo "login yume190" >> ~/.netrc
+        echo "password ${{ secrets.PERSONAL_ACCESS_TOKEN }}" >> ~/.netrc
+        echo "machine github.com" > ~/.netrc
+        echo "login yume190" >> ~/.netrc
+        echo "password ${{ secrets.PERSONAL_ACCESS_TOKEN }}" >> ~/.netrc
+        chmod 600 ~/.netrc
+
     - name: Build with SwiftPM
       run: |
         cd UsePrebuiltSwiftSyntaxSwiftPM
-        echo "machine api.github.com\n  login yume190\n  password ${{ secrets.PERSONAL_ACCESS_TOKEN }}\n" > .netrc
-        echo "machine github.com\n  login yume190\n  password ${{ secrets.PERSONAL_ACCESS_TOKEN }}\n" >> .netrc
-        cat .netrc
-        swift build --netrc-file .netrc
+        swift build
         
