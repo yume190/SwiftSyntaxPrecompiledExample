@@ -20,34 +20,10 @@ jobs:
       with:
         xcode-version: ${{ env.XCODE_VERSON }}
 
-    # - name: Setup PAT for Private Repos
-    #   run: |
-    #     git config --global url."https://${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/".insteadOf "https://github.com/"
-
-    - uses: extractions/netrc@v1
-      with:
-        machine: github.com
-        username: yume190
-        password: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-    - uses: extractions/netrc@v1
-      with:
-        machine: api.github.com
-        username: yume190
-        password: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-
-    - name: Test .netrc
-      run: |
-        curl --output source.zip \
-          --location \
-          --netrc \
-          https://github.com/PreternaturalAI/swift-syntax/releases/download/600.0.0/SwiftBasicFormat.xcframework.zip
-        ls -al
-        pwd
-
     - name: Build with SwiftPM
       run: |
         cd UsePrebuiltSwiftSyntaxSwiftPM
-        swift build --netrc-file ~/.netrc
+        swift build
 
     - name: Build with Mac
       run: |

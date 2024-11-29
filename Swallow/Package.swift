@@ -47,10 +47,15 @@ var package = Package(
     dependencies: [
         .package(url: "https://github.com/apple/swift-collections", from: "1.1.0"),
         // .package(url: "https://github.com/apple/swift-syntax.git", from: "600.0.1"),
+        // .package(
+        //     url: "https://github.com/PreternaturalAI/swift-syntax.git",
+        //     revision: "93837b5d30b1a0eb03688809a85b41091b24aef8"
+        // ),
         .package(
-            url: "https://github.com/PreternaturalAI/swift-syntax.git",
-            revision: "93837b5d30b1a0eb03688809a85b41091b24aef8"
+            url: "https://github.com/swift-precompiled/swift-syntax",
+            from: "600.0.0"
         ),
+        
         //  .package(path: "/Users/yume/git/vatsal/swift-syntax/SwiftSyntaxPrebuilt_LOCAL_600.0.0/build/swift-syntax_Precompile/XCFrameworks/packages/swift-syntax"),
         //   .package(path: "/Users/yume/git/vatsal/swift-syntax/SwiftSyntaxPrebuilt_LOCAL_600.0.1/build/swift-syntax_Precompile/XCFrameworks/packages/swift-syntax"),
     ],
