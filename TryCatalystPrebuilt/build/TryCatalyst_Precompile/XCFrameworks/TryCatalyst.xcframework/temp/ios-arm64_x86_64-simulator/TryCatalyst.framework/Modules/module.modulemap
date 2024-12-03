@@ -1,0 +1,4 @@
+framework module TryCatalyst {
+    header "TryCatalyst-Swift.h"
+    export *
+}
